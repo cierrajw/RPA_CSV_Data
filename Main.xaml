@@ -64,7 +64,7 @@
         <OutArgument x:TypeArguments="sd:DataRow[]">[filteredData]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="sd:DataRow[]">[data.Select("district &lt; 3")]</InArgument>
+        <InArgument x:TypeArguments="sd:DataRow[]">[data.Select("district &lt; 3 And ucr_ncic_code &lt; 3000")]</InArgument>
       </Assign.Value>
     </Assign>
     <ui:ForEach x:TypeArguments="sd:DataRow" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="330,287" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[filteredData]">
@@ -79,7 +79,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="226,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[row(&quot;district&quot;).ToString()]" />
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="226,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[row(&quot;district&quot;).ToString() + row(&quot;ucr_ncic_code&quot;).ToString()]" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
